@@ -1,0 +1,49 @@
+name: Build (Release)
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release Version"
+        required: true
+        type: string
+        default: "x.x.x"
+
+jobs:
+  build-release:
+    name: Build and Release
+    permissions:
+      contents: write
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup keystore
+        env:
+          KEYSTORE_BASE: ${{ secrets.KEYSTORE_BASE }}
+        run: |
+          echo "$KEYSTORE_BASE" | base64 -d > sign.keystore
+
+      - name: Build
+        env:
+          KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
+        run: |
+          chmod +x gradlew
+          KEYSTORE_PATH="$PWD/sign.keystore" ./gradlew --no-daemon assembleRelease
+          mv app/build/outputs/apk/release/app-release.apk intent-playground.apk
+
+      - name: Create Release and Upload Artifacts
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          name: ${{ inputs.version }}
+          allowUpdates: true
+          prerelease: false
+          tag: ${{ inputs.version }}
+          artifacts: "*.apk"

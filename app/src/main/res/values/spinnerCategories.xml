@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerCategories">
+        <item>ACCESSIBILITY_SHORTCUT_TARGET</item>
+        <item>ALTERNATIVE</item>
+        <item>APP_BROWSER</item>
+        <item>APP_CALCULATOR</item>
+        <item>APP_CALENDAR</item>
+        <item>APP_CONTACTS</item>
+        <item>APP_EMAIL</item>
+        <item>APP_FILES</item>
+        <item>APP_FITNESS</item>
+        <item>APP_GALLERY</item>
+        <item>APP_MAPS</item>
+        <item>APP_MARKET</item>
+        <item>APP_MESSAGING</item>
+        <item>APP_MUSIC</item>
+        <item>APP_WEATHER</item>
+        <item>BROWSABLE</item>
+        <item>CAR_DOCK</item>
+        <item>CAR_MODE</item>
+        <item>DEFAULT</item>
+        <item>DESK_DOCK</item>
+        <item>DEVELOPMENT_PREFERENCE</item>
+        <item>EMBED</item>
+        <item>FRAMEWORK_INSTRUMENTATION_TEST</item>
+        <item>HE_DESK_DOCK</item>
+        <item>HOME</item>
+        <item>INFO</item>
+        <item>LAUNCHER</item>
+        <item>LEANBACK_LAUNCHER</item>
+        <item>LE_DESK_DOCK</item>
+        <item>MONKEY</item>
+        <item>OPENABLE</item>
+        <item>PREFERENCE</item>
+        <item>SAMPLE_CODE</item>
+        <item>SECONDARY_HOME</item>
+        <item>SELECTED_ALTERNATIVE</item>
+        <item>TAB</item>
+        <item>TEST</item>
+        <item>TYPED_OPENABLE</item>
+        <item>UNIT_TEST</item>
+        <item>VOICE</item>
+        <item>VR_HOME</item>
+    </string-array>
+</resources>
